@@ -1,7 +1,6 @@
 from threading import Thread
 import random, time, math
 from src import PersonClass, Collections
-import tkinter
 
 globalInput = 0
 debugToggle = True
