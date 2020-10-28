@@ -74,7 +74,9 @@ class Person:
             self.intelligenceDecay = 0
         elif self.age >= 16:
             self.intelligenceDecay = 1
-        self.intelligence = self.intelligence - self.intelligenceDecay
+        self.intelligence -= self.intelligenceDecay
+        if self.intelligence < 0:
+            self.intelligence = 0
 
     def calculateBirthDefects(self):
         if len(self.birthDefects) == 1:
