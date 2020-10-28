@@ -55,7 +55,7 @@ ringWorm = IllnessClass.Illness("Ring Worm", 2, 2, 85, 200)
 chickenPox = IllnessClass.Illness("Chicken Pox", 3, 1, 90, 50)
 cancer = IllnessClass.Illness("Cancer", 8, 4, 10, 6500)
 # ---------
-illnessCollection = [commonCold, chickenPox, cancer]
+illnessCollection = [aHeadache, skinWarts, skinInfection, commonCold, theFlu, pinWorms, ringWorm, chickenPox, cancer]
 
 # Birth Defects collections
 cleftLip = BirthDefects.BirthDefect("Cleft Lip", 0, .5, True, 4000, 3)
