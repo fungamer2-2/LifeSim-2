@@ -60,8 +60,8 @@ class Person:
                     print("You have contracted " + self.illness.name)
                     self.health = self.health - self.healthDecay
         else:
-            self.health = self.health - self.illness.healthDecay
-            self.happiness = self.happiness - self.illness.happinessDecay
+            self.health -= self.illness.healthDecay
+            self.happiness -= self.illness.happinessDecay
             if self.health <= 0:
                 print("You have died")
                 exit()
@@ -80,9 +80,9 @@ class Person:
 
     def calculateBirthDefects(self):
         if len(self.birthDefects) == 1:
-            self.healthDecay = self.healthDecay - self.birthDefects[0]
+            self.healthDecay -= self.birthDefects[0]
         elif len(self.birthDefects) == 2:
-            self.healthDecay = self.healthDecay - (self.birthDefects[0] + self.birthDefects[1])
+            self.healthDecay -= (self.birthDefects[0] + self.birthDefects[1])
 
     def calculateRelationshipValues(self):
         for i in self.relationships:
@@ -180,7 +180,7 @@ class Person:
         time.sleep(1)
 
     def useAction(self):
-        self.currentActions = self.currentActions - 1
+        self.currentActions -= 1
         print("You used an action")
         print("you have " + str(self.currentActions) + " actions left out of " + str(self.actionLimit))
 
@@ -200,9 +200,9 @@ class Person:
         relationshipHappinessDecay = 0
 
         if self.relationships[0].relationshipvalue <= 50:
-            relationshipHappinessDecay = relationshipHappinessDecay + 1
+            relationshipHappinessDecay += 1
         if self.relationships[1].relationshipvalue <= 50:
-            relationshipHappinessDecay = relationshipHappinessDecay + 1
+            relationshipHappinessDecay += 1
 
         self.happinessDecay = (self.property.happinessDecay + relationshipHappinessDecay)
-        self.happiness = self.happiness - self.happinessDecay
+        self.happiness -= self.happinessDecay
