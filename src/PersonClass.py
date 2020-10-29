@@ -113,56 +113,26 @@ class Person:
             print("you only have " + str(self.cureAttemptByTurn) + " attempts left, now!")
             if self.age < 18:
                 if self.relationships[0].status == "Low Income":
-                    doctorchance = random.randint(1, 5)
-                    if doctorchance == 1:
-                        print("Your parents decide to take you to treatment for " + self.illness.name)
-                        print("It costed them $" + str(self.illness.cureCost))
-                        curechance = random.randint(1, 100)
-                        if curechance < self.illness.cureChance:
-                            print("You have cured " + self.illness.name)
-                            self.illness = None
-                        else:
-                            print(
-                                "The doctors provided the best treatment possible, but they were unable to come to a cure.")
-                            # Add doctor variation of skill and cost
-                            # add the amount of treatments needs to cure a specific disease/illness
+                    chance = 5
+                elif self.relationships[0].status == "Mid Income":
+                    chance = 3
+                else:
+                    chance = 2
+                doctorchance = random.randint(1, chance)
+                if doctorchance == 1:
+                    print("Your parents decide to take you to treatment for " + self.illness.name)
+                    print("It costed them $" + str(self.illness.cureCost))
+                    curechance = random.randint(1, 100)
+                    if curechance < self.illness.cureChance:
+                        print("You have cured " + self.illness.name)
+                        self.illness = None
                     else:
                         print(
-                            "Your parents could not afford to take you to the doctor. Low Income! They are devastated.")
-                if self.relationships[0].status == "Mid Income":
-                    doctorchance = random.randint(1, 3)
-                    if doctorchance == 1:
-                        print("Your parents decide to take you to treatment for " + self.illness.name)
-                        print("It costed them $" + str(self.illness.cureCost))
-                        curechance = random.randint(1, 100)
-                        if curechance < self.illness.cureChance:
-                            print("You have cured " + self.illness.name)
-                            self.illness = None
-                        else:
-                            print(
-                                "The doctors provided the best treatment possible, but they were unable to come to a cure.")
-                            # Add doctor variation of skill and cost
-                            # add the amount of treatments needs to cure a specific disease/illness
-                    else:
-                        print(
-                            "Your parents could not afford to take you to the doctor. Mid Income! They are devastated.")
-                if self.relationships[0].status == "High Income":
-                    doctorchance = random.randint(1, 2)
-                    if doctorchance == 1:
-                        print("Your parents decide to take you to treatment for " + self.illness.name)
-                        print("It costed them $" + str(self.illness.cureCost))
-                        curechance = random.randint(1, 100)
-                        if curechance < self.illness.cureChance:
-                            print("You have cured " + self.illness.name)
-                            self.illness = None
-                        else:
-                            print(
-                                "The doctors provided the best treatment possible, but they were unable to come to a cure.")
-                            # Add doctor variation of skill and cost
-                            # add the amount of treatments needs to cure a specific disease/illness
-                    else:
-                        print(
-                            "Your parents could not afford to take you to the doctor. High Income!They are devastated.")
+                            "The doctors provided the best treatment possible, but they were unable to come to a cure.")
+                        # Add doctor variation of skill and cost
+                        # add the amount of treatments needs to cure a specific disease/illness
+                else:
+                    print(f"Your parents could not afford to take you to the doctor. {self.relationships[0].status}! They are devastated.")
             elif self.age >= 18:
                 print("It will cost " + str(self.illness.cureCost) + " to cure " + self.illness.name)
                 print("Would you like to attempt to cure? y/n")
