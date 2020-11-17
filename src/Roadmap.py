@@ -27,7 +27,7 @@
 # ----- Flush out the education system from 0-18 ---- ### SPAWNED A NEW TASK OF AN ACTION MENU EACH INTERVAL. ENGINE REWRITTEN TO CALCULATE CONFIGS AND CHECK ACTIONS ###
 #     - - - - - This spawned a ridiculous but essential aciton menu that is currently still under development, but is functional. ### COMPLETE ### - 31JULY19
 #     - This should give you the ability to study/focus on different things each year. ### PARTIALLY COMPLETE ### - 31JULY19
-#     - - - - - You could focus on playing/memorizing during elementary school that affects health decay ### PARTIALLY COMPLETE ### - 31JULY19
+#     - - - - - You could focus on playing/memorizing during elementary school that affects health decay ### COMPLETE ### - 16NOVEMBER20
 #     - - - - - - - - - will have to implement some <--- What? Incomplete notes
 #     - FUTURE: Give the ability to study for specific things
 #     - The school you are going to should be derived from the income/economic status that your parents have
