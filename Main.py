@@ -149,10 +149,14 @@ def showActionMenu(character):
             if pinput2 == "1":
                 print("You decided to " + educationchoices[0])
                 character.looks = character.looks + 1
+                character.memorizeTurns -= 1
+                if character.memorizeTurns < 0:
+                    character.memorizeTurns = 0
                 character.useAction()
             if pinput2 == "2":
                 print("You decide to " + educationchoices[1])
                 character.intelligence = character.intelligence + 1
+                character.memorizeTurns += 1
                 character.useAction()
 
         if pinput == "doctor":
