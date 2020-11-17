@@ -40,6 +40,7 @@ class Person:
         self.strength = strength
         self.strengthDecay = strengthDecay
         self.happinessDecay = happinessDecay
+        self.memorizeTurns = 0
         self.job = job
         self.debug = debug
         self.timeAtJob = timeAtJob
@@ -65,6 +66,14 @@ class Person:
             if self.health <= 0:
                 print("You have died")
                 exit()
+        
+        self.healthDecay = self.memorizeTurns / 2
+        self.health -= self.healthDecay
+        
+        if self.health <= 0:
+            print("You have died")
+            exit()
+        
         if self.happiness <= 0:
             print("Your life is ruined by bad decisions, you feel everyone is out to get you, you can't get a break, but you'll make one. You kill yourself.")
             exit()
