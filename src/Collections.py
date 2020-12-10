@@ -239,20 +239,21 @@ def getInitialRelationships(player):
     player.relationships = [father, mother]
     fatherLast = getRandomLastName()
     motherLast = getRandomLastName()
+    gender = random.randint(1, 2)
+    if gender == 1:
+        player.name = getRandomFirstNameMale()
+    if gender == 2:
+        player.name = getRandomFirstNameFemale()
     areMarried = random.randint(1, 2)
     if areMarried == 1:
         player.relationships[0].name = getRandomFirstNameMale() + " " + fatherLast
         player.relationships[1].name = getRandomFirstNameFemale() + " " + motherLast
-        gender = random.randint(1, 2)
-        if gender == 1:
-            player.name = getRandomFirstNameMale()
-        if gender == 2:
-            player.name = getRandomFirstNameFemale()
+        
         whichParents = random.randint(1, 2)
         if whichParents == 1:
-            player.name = player.name + " " + fatherLast
+            player.name += " " + fatherLast
         if whichParents == 2:
-            player.name = player.name + " " + motherLast
+            player.name += " " + motherLast
 
         parentStatus = random.randint(1, 3)
         if parentStatus == 1:
@@ -274,12 +275,8 @@ def getInitialRelationships(player):
         lastName = getRandomLastName()
         player.relationships[0].name = getRandomFirstNameMale() + " " + lastName
         player.relationships[1].name = getRandomFirstNameFemale() + " " + lastName
-        gender = random.randint(1, 2)
-        if gender == 1:
-            player.name = getRandomFirstNameMale()
-        if gender == 2:
-            player.name = getRandomFirstNameFemale()
-        player.name = player.name + " " + lastName
+        
+        player.name += " " + lastName
         parentStatus = random.randint(1, 3)
         if parentStatus == 1:
             player.relationships[0].status = "Low Income"
