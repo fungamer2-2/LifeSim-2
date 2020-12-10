@@ -148,14 +148,14 @@ def showActionMenu(character):
             pinput2 = input()
             if pinput2 == "1":
                 print("You decided to " + educationchoices[0])
-                character.looks = character.looks + 1
+                character.looks += 1
                 character.memorizeTurns -= 1
                 if character.memorizeTurns < 0:
                     character.memorizeTurns = 0
                 character.useAction()
             if pinput2 == "2":
                 print("You decide to " + educationchoices[1])
-                character.intelligence = character.intelligence + 1
+                character.intelligence += 1
                 character.memorizeTurns += 1
                 character.useAction()
 
@@ -183,7 +183,7 @@ def showActionMenu(character):
                 idleTime()
             if pinput2 == "3":
                 print("You decide to " + lifechoices[2])
-                character.isHealthyTurns = character.isHealthyTurns + 4
+                character.isHealthyTurns += 4
                 print("You are now healthy")
         if pinput == "job":
             character.useAction()
@@ -427,6 +427,6 @@ while globalInput != "2":
     if pinput == "m" and person1.currentActions <= 0:
         print("You are out of actions for this turn!")
     if pinput == nextTurn:
-        person1.age = person1.age + .5
+        person1.age += .5
         intervalCheck(person1)
         continue
