@@ -54,12 +54,12 @@ class Person:
         else:
             self.isHealthy = False
         if self.illness == None:
-            healthChance = random.randint(1, 80)
+            illnessChance = (100 - self.health) // 20
             if self.isHealthy == False:
-                if healthChance > self.health:
+                if random.randint(1, 100) <= illnessChance:
                     self.illness = Collections.getRandomIllness()
                     print("You have contracted " + self.illness.name)
-                    self.health = self.health - self.healthDecay
+                    self.health -= self.healthDecay
                 if self.illness != None and self.age >= 65:
                     if random.randint(1,1000) == 1:
                         self.illness = Collections.alzheimers
@@ -156,7 +156,16 @@ class Person:
                     if self.money >= self.illness.cureCost:
                         curechance = random.randint(1, 100)
                         if curechance < self.illness.cureChance:
+                            self.health += 2 * self.illness.healthDecay
+                            self.happiness += 2 * self.illness.happinessDecay
+                            self.intelligence += 2 * self.illness.intelligenceDecay
+                            
+                            self.happiness = min(self.happiness, 100)
+                            self.health = min(self.health, 100)
+                            self.intelligence = min(self.intelligence, 100)
+                            
                             print("You have cured " + self.illness.name)
+                            
                     else:
                         print("You do not have the money to go through treatment")
                         # add potential financing
