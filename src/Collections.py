@@ -43,17 +43,20 @@ blackWaterHouse_Property = Property.Property("Blackwater House", 2000, 200000, 1
 blackWaterHouse2_Property = Property.Property("Blackwater Manor", 2300, 275000, 1, 275000, False, 0)
 
 
-# illness collections - name, healthDecay, happinessDecay, cureChance, cureCost
+# illness collections - name, healthDecay, happinessDecay, intelligenceDecay, cureChance, cureCost
 # "You are suffering from a" -----
-aHeadache = IllnessClass.Illness("A Headache", 0, 1, 100, 50)
-skinWarts = IllnessClass.Illness("Skin Warts", 0, 2, 98, 30)
-skinInfection = IllnessClass.Illness("A Skin Infection", 1, 1, 40, 300)
-commonCold = IllnessClass.Illness("The Common Cold", 1, 0, 95, 90)
-theFlu = IllnessClass.Illness("Influenza", 2, 1, 90, 150)
-pinWorms = IllnessClass.Illness("Pinworms", 1, 3, 80, 20)
-ringWorm = IllnessClass.Illness("Ring Worm", 2, 2, 85, 200)
-chickenPox = IllnessClass.Illness("Chicken Pox", 3, 1, 90, 50)
-cancer = IllnessClass.Illness("Cancer", 8, 4, 10, 6500)
+aHeadache = IllnessClass.Illness("A Headache", 0, 1, 0, 100, 50)
+skinWarts = IllnessClass.Illness("Skin Warts", 0, 2, 0, 98, 30)
+skinInfection = IllnessClass.Illness("A Skin Infection", 1, 1, 0, 40, 300)
+commonCold = IllnessClass.Illness("The Common Cold", 1, 0, 0, 95, 90)
+theFlu = IllnessClass.Illness("Influenza", 2, 1, 90, 0, 150)
+pinWorms = IllnessClass.Illness("Pinworms", 1, 3, 0, 80, 20)
+ringWorm = IllnessClass.Illness("Ring Worm", 2, 2, 0, 85, 200)
+chickenPox = IllnessClass.Illness("Chicken Pox", 3, 1, 0, 90, 50)
+cancer = IllnessClass.Illness("Cancer", 8, 4, 0, 10, 6500)
+
+alzheimers = IllnessClass.Illness("Alzheimer's Disease", 10, 4, 4, 0, 7500)
+
 # ---------
 illnessCollection = [aHeadache, skinWarts, skinInfection, commonCold, theFlu, pinWorms, ringWorm, chickenPox, cancer]
 
