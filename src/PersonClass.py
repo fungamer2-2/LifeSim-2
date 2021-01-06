@@ -60,9 +60,15 @@ class Person:
                     self.illness = Collections.getRandomIllness()
                     print("You have contracted " + self.illness.name)
                     self.health = self.health - self.healthDecay
+                if self.illness != None and self.age >= 65:
+                    if random.randint(1,1000) == 1:
+                        self.illness = Collections.alzheimers
+                        print("You have contracted " + self.illness.name)
+                        self.health = self.health - self.healthDecay
         else:
             self.health -= self.illness.healthDecay
             self.happiness -= self.illness.happinessDecay
+            self.intelligence -= self.illness.intelligenceDecay
             if self.health <= 0:
                 print("You have died")
                 exit()
