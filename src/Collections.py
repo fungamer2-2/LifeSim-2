@@ -31,16 +31,16 @@ firstNameCollectionFemale = ["Tiffany", "Tricia", "Beth", "Bethany", "Ashely", "
 
 
 #Property Collections - Each one of theses needs to be added to the proplist in getRandomPropertyList
-#name, sqf, value, growth, amountOwed, isPaidOff, happinessDecay
+#name, sqf, value, growth, amountOwed, isPaidOff, happinessDelta
 withParents_Property = Property.Property("With Parents", 0, 0, 0, 0, 0, 0)
-homeless_Property = Property.Property("Homeless", 0, 0, 0, 0, True, 5)
+homeless_Property = Property.Property("Homeless", 0, 0, 0, 0, True, -5)
 homesteadApartments_Property = Property.Property("Homestead Apartments - 1 Bedroom", 900, 850, 0, 0, 0, 0)
-homesteadApartments2_Property = Property.Property("Homestead Apartments - 2 Bedroom", 1200, 975, 0, 0, 0, 0)
-hiddenSpringsHouse_Property = Property.Property("Hidden Springs House", 1800, 175000, 1, 175000, False, 0)
-hiddenSpringsHouse2_Property = Property.Property("Hideen Springs PentHouse", 2700, 290000, 1, 290000, False, 0)
-hiddenSpringsHouse3_Property = Property.Property("Hidden Springs Mansion", 5900, 850000, 1, 850000, False, 0)
-blackWaterHouse_Property = Property.Property("Blackwater House", 2000, 200000, 1, 200000, False, 0)
-blackWaterHouse2_Property = Property.Property("Blackwater Manor", 2300, 275000, 1, 275000, False, 0)
+homesteadApartments2_Property = Property.Property("Homestead Apartments - 2 Bedroom", 1200, 975, 0, 0, 0, 0.5)
+hiddenSpringsHouse_Property = Property.Property("Hidden Springs House", 1800, 175000, 1, 175000, False, 1)
+hiddenSpringsHouse2_Property = Property.Property("Hideen Springs PentHouse", 2700, 290000, 1, 290000, False, 2)
+hiddenSpringsHouse3_Property = Property.Property("Hidden Springs Mansion", 5900, 850000, 1, 850000, False, 3)
+blackWaterHouse_Property = Property.Property("Blackwater House", 2000, 200000, 1, 200000, False, 2)
+blackWaterHouse2_Property = Property.Property("Blackwater Manor", 2300, 275000, 1, 275000, False, 2)
 
 
 # illness collections - name, healthDecay, happinessDecay, intelligenceDecay, cureChance, cureCost
