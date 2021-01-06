@@ -371,6 +371,19 @@ def intervalCheck(character):
         character.intelligence = 100
         character.happiness = 100
     character.cureAttemptByTurn = 3
+    
+    character.happiness += random.randint(-3, 3)
+    character.happiness = min(max(character.happiness, 0), 100)
+    
+    character.health += random.randint(-3, 3)
+    character.health = min(max(character.health, 0), 100)
+    
+    character.intelligence += random.randint(-3, 3)
+    character.intelligence = min(max(character.intelligence, 0), 100)
+    
+    character.looks += random.randint(-3, 3)
+    character.looks = min(max(character.looks, 0), 100)
+    
     character.calculateHealth()
     character.calculateIntelligence()
     character.checkAge()
@@ -411,6 +424,7 @@ while globalInput != "2":
     print("Age: " + str(person1.age))
     print("Health: " + str(person1.health))
     print("Intelligence: " + str(person1.intelligence))
+    print("Looks: " + str(person1.looks))
     print("Actions: " + str(person1.currentActions) + "/" + str(person1.actionLimit))
     print("Healthy: " + str(person1.isHealthy))
     print("Money: " + str(person1.money))
