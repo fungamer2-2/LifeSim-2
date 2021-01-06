@@ -186,4 +186,4 @@ class Person:
         avg = (self.relationships[0].relationshipvalue + self.relationships[1].relationshipvalue) / 2
         relationshipHappinessDelta = round(((avg - 50) / 50) * 2) / 2
         
-        self.happiness -= relationshipHappinessDelta
+        self.happiness += relationshipHappinessDelta
