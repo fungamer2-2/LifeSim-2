@@ -206,9 +206,7 @@ def getRandomIllness():
     return illness
 
 def getLowSevEvent(i):
-    arrayCount = len(lowSevEvents)
-    randomArray = random.randint(1, arrayCount)
-    event = lowSevEvents[randomArray-1]
+    event = random.choice(lowSevEvents)
     event.createEvent(i)
 
 
@@ -217,15 +215,16 @@ def getBirthDefects():
     getdefect2 = False
     defectlist = []
     contract = random.randint(1, 100)
-    if contract > 5:  # will change to greater number for a smaller chance
+    if contract <= 5:  # will change to greater number for a smaller chance
         getdefect1 = True
     contract2 = random.randint(1, 100)
     # if contract2 > 5: # will make this an even smaller nunber  DISABLING THIS SO YOU CAN ONLY GET 1 BIRTH DEFECT.
     # getdefect2 = True
     if getdefect1 == True:
         randomdefect = random.randint(0, (len(birthDefectCollection) - 1))
-        defectlist.append(birthDefectCollection[randomdefect])
-        print("You contracted a birth defect")
+        defect = birthDefectCollection[randomdefect]
+        defectlist.append(defect)
+        print("You contracted a birth defect: " + defect.name)
     else:
         print("No birth defects")
     # if getdefect2 == True:
