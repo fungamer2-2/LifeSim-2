@@ -176,12 +176,8 @@ class Person:
         if self.intelligenceDecay < 0:
             self.intelligenceDecay = 0
 
-        relationshipHappinessDecay = 0
-
-        if self.relationships[0].relationshipvalue <= 50:
-            relationshipHappinessDecay += 1
-        if self.relationships[1].relationshipvalue <= 50:
-            relationshipHappinessDecay += 1
-
-        self.happinessDecay = (self.property.happinessDecay + relationshipHappinessDecay)
-        self.happiness -= self.happinessDecay
+        relationshipHappinessDelta = 0
+        avg = (self.relationships[0].relationshipvalue + self.relationships[1].relationshipvalue) / 2
+        relationshipHappinessDelta = round(((avg - 50) / 50) * 2) / 2
+        
+        self.happiness -= relationshipHappinessDelta
