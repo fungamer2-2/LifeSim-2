@@ -169,14 +169,14 @@ def showActionMenu(character):
             pinput2 = input()
             if pinput2 == "1":
                 print("You decided to " + lifechoices[0])
-                character.relationships[0].relationshipvalue = character.relationships[0].relationshipvalue + 5
+                character.relationships[0].relationshipvalue += 5
                 idleTime()
                 print("You now have " + str(character.relationships[0].relationshipvalue) + "/100 relationship points")
                 character.useAction()
                 idleTime()
             if pinput2 == "2":
                 print("You decided to " + lifechoices[1])
-                character.relationships[1].relationshipvalue = character.relationships[1].relationshipvalue + 5
+                character.relationships[1].relationshipvalue += 5
                 idleTime()
                 print("You now have " + str(character.relationships[1].relationshipvalue) + "/100 relationship points")
                 character.useAction()
