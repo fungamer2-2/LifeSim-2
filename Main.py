@@ -3,7 +3,7 @@ import random, time, math
 from src import PersonClass, Collections
 
 globalInput = 0
-debugToggle = True
+debugToggle = False
 nextTurn = "d"
 eventCD = 0
 

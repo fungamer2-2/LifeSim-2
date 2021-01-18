@@ -74,7 +74,17 @@ class Person:
                 exit()
         
         self.healthDecay = self.memorizeTurns / 2
-        self.health -= self.healthDecay
+        
+        ageHealthDecay = 0
+        
+        if self.age > 90:
+          ageHealthDecay = 2
+        elif self.age > 80:
+          ageHealthDecay = 1
+        elif self.age > 70:
+          ageHealthDecay = 0.5
+        
+        self.health -= self.healthDecay + ageHealthDecay
         
         if self.health <= 0:
             print("You have died")
