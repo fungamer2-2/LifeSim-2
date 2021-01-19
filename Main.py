@@ -169,12 +169,14 @@ def showActionMenu(character):
             pinput2 = input()
             if pinput2 == "1":
                 print("You decided to " + lifechoices[0])
+                character.happiness += 4
                 character.relationships[0].relationshipvalue += 5
                 idleTime()
                 print("You now have " + str(character.relationships[0].relationshipvalue) + "/100 relationship points")
                 character.useAction()
                 idleTime()
             if pinput2 == "2":
+                character.happiness += 4
                 print("You decided to " + lifechoices[1])
                 character.relationships[1].relationshipvalue += 5
                 idleTime()
@@ -182,6 +184,7 @@ def showActionMenu(character):
                 character.useAction()
                 idleTime()
             if pinput2 == "3":
+                character.health += 4
                 print("You decide to " + lifechoices[2])
                 character.isHealthyTurns += 4
                 print("You are now healthy")
@@ -225,6 +228,7 @@ def showActionMenu(character):
                                                 print("""The company has decided not to move forward in the interview process. 
                                                 Good luck on future attempts buddy""")
                                             else:
+                                                character.happiness += 5
                                                 print("Congratulations! They would like to offer you the job making " + str(openjobs[x].salary * 2) + " a year!")
                                                 character.job = openjobs[x]
                                                 character.timeAtJob = 0
@@ -426,7 +430,7 @@ while globalInput != "2":
     print("Intelligence: " + str(person1.intelligence))
     print("Looks: " + str(person1.looks))
     print("Actions: " + str(person1.currentActions) + "/" + str(person1.actionLimit))
-    print("Healthy: " + str(person1.isHealthy))
+    print("Healthy: " + ("Yes" if person1.isHealthy else "No"))
     print("Money: " + str(person1.money))
     print("Happiness: " + str(person1.happiness))
     # intervalCheck(person1)

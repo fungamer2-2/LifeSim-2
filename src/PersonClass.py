@@ -54,7 +54,7 @@ class Person:
         else:
             self.isHealthy = False
         if self.illness == None:
-            illnessChance = (100 - self.health) // 20
+            illnessChance = (100 - self.health) // 20 + 2
             if self.isHealthy == False:
                 if random.randint(1, 100) <= illnessChance:
                     self.illness = Collections.getRandomIllness()
@@ -90,7 +90,7 @@ class Person:
             print("You have died")
             exit()
         
-        if self.happiness <= 0:
+        if self.age >= 12 and self.happiness <= 0:
             print("Your life is ruined by bad decisions, you feel everyone is out to get you, you can't get a break, but you'll make one. You kill yourself.")
             exit()
 
