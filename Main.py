@@ -35,7 +35,7 @@ def createCharacter(x):
     x.money = 0
     x.intelligence = random.randint(15, 100)
     debugCode("Intelligence: " + str(x.intelligence))
-    x.health = random.randint(1, 100)
+    x.health = random.randint(50, 100)
     debugCode("Health: " + str(x.health))
     x.actionLimit = 5
     debugCode("ActionLimit: " + str(x.actionLimit))
@@ -48,7 +48,7 @@ def createCharacter(x):
 
 
 def checkEventStatus(x):
-    if debugToggle != True:
+    if not debugToggle:
         debugCode("Checking event status...")
         print("Event Cooldown: " + str(x.eventCooldown))
         newnum = random.randint(1, 100)
@@ -66,6 +66,7 @@ def checkEventStatus(x):
                 debugCode("Generating new medium severirty event...")
                 print("We are now starting a med sev event.")
                 x.eventCooldown = 95
+                Collections.getMedSevEvent(x)
             if eventSeverity > 90:
                 debugCode("Generating new high severity event....")
                 print("We are now starting a high sev event.")
@@ -106,7 +107,7 @@ def showActionMenu(character):
     if character.age < 16:
         lifechoices = ["Play with your father", "Play with your mother",
                        "Take your vitamins"]  # will have to determine which of these are available given on family death etc - UGH!
-    if character.age > 16:
+    else:
         lifechoices = ["Spend time with your father", "Spend time with your mother",
                        "Meal Prep & Eat Healthy"]  # will have to determine which of these are available given on family death etc - UGH!
     # FLESHING OUT JOB CHOICES
@@ -152,11 +153,17 @@ def showActionMenu(character):
                 character.memorizeTurns -= 1
                 if character.memorizeTurns < 0:
                     character.memorizeTurns = 0
+                if character.currenteducation == "High School":
+                	character.highSchoolIntelligenceDecay += 1
                 character.useAction()
             if pinput2 == "2":
                 print("You decide to " + educationchoices[1])
                 character.intelligence += 1
                 character.memorizeTurns += 1
+                if character.currenteducation == "High School":
+                	character.highSchoolIntelligenceDecay -= 1
+                	if character.highSchoolIntelligenceDecay < 0:
+                		character.highSchoolIntelligenceDecay = 0
                 character.useAction()
 
         if pinput == "doctor":
@@ -170,6 +177,7 @@ def showActionMenu(character):
             if pinput2 == "1":
                 print("You decided to " + lifechoices[0])
                 character.happiness += 4
+                character.happiness = min(max(character.happiness, 0), 100)
                 character.relationships[0].relationshipvalue += 5
                 idleTime()
                 print("You now have " + str(character.relationships[0].relationshipvalue) + "/100 relationship points")
@@ -177,6 +185,7 @@ def showActionMenu(character):
                 idleTime()
             if pinput2 == "2":
                 character.happiness += 4
+                character.happiness = min(max(character.happiness, 0), 100)
                 print("You decided to " + lifechoices[1])
                 character.relationships[1].relationshipvalue += 5
                 idleTime()
@@ -394,6 +403,11 @@ def intervalCheck(character):
     checkEventStatus(character)
     checkJobDetails(character)
     checkPropertyDetails(character)
+    
+    if character.money <= -200:
+    	print("Your house has been repossessed because you don't have enough money to pay the bills")
+    	character.property = Collections.homeless_Property
+   
     character.calculateStatDependencies()
     character.calculateRelationshipValues()
     character.currentActions = character.actionLimit
@@ -424,7 +438,6 @@ debugCode("Starting while Loop........")
 # intervalCheck(person1)
 
 while globalInput != "2":
-    print("6 MONTHS HAS GONE BY.....")
     print("Age: " + str(person1.age))
     print("Health: " + str(person1.health))
     print("Intelligence: " + str(person1.intelligence))
@@ -447,4 +460,5 @@ while globalInput != "2":
     if pinput == nextTurn:
         person1.age += .5
         intervalCheck(person1)
+        print("6 MONTHS HAS GONE BY.....")
         continue
