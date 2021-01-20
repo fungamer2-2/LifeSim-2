@@ -72,14 +72,13 @@ birthDefectCollection = [cleftLip, downSyndrome]
 
 #FAMILY EVENTS ######
 familyevent_lowsev = EventsClass.Event("Parental Discipline", "You broke the rules", "Family_Event", "Comply", "Rebel", 3, 2)
-familyevent_medsev = EventsClass.Event("Parental Discipline", "You broke the rules", "Family_Event", "Comply", "Rebel", "Option one result", "Option two result")
-familyevent_highsev = EventsClass.Event("Parental Discipline", "You broke the rules", "Family_Event", "Comply", "Rebel", "Option one result", "Option two result")
+familyevent_medsev = EventsClass.Event("Parental Discipline", "You accidentally brome your parents window while playing", "Family_Event", "Admit", "Lie about it", 4, 5)
 #SOCIAL  EVENTS ######
 socialevent_lowsev = EventsClass.Event("Bully", "Someone is bullying you", "Social_Event", "Retaliate", "Ignore", 3, 3)
 
-allEvents = [familyevent_lowsev,familyevent_medsev,familyevent_highsev]
+allEvents = [familyevent_lowsev,familyevent_medsev]
 lowSevEvents = [familyevent_lowsev, socialevent_lowsev]
-medSevEvents = []
+medSevEvents = [familyevent_medsev]
 highSevEvents = []
 
 # Relationships collections
@@ -212,6 +211,9 @@ def getLowSevEvent(i):
     event = random.choice(lowSevEvents)
     event.createEvent(i)
 
+def getMedSevEvent(i):
+    event = random.choice(medSevEvents)
+    event.createEvent(i)
 
 def getBirthDefects():
     getdefect1 = False

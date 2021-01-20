@@ -35,7 +35,7 @@
 #     - - - - - Need to add instantiation method of parents in the PersonClass.
 #     - Elementary school should really give you no options but allow you to become familiar with different aspects of the game
 #     - Middle school should give you a bit more choice in study and life ### PARTIALLY COMPLETE ### 31JULY19
-#     - High school should prep you for what you want to do intelligence wise. High school should largely affect your intelligence decay
+#     - High school should prep you for what you want to do intelligence wise. High school should largely affect your intelligence decay ### COMPLETE 20JAN21
 #     - - - - - Integrate an intelligence decay for throughout life that starts when you turn 16.
 #     - - - - - FUTURE: Certain careers can affect this delay, this could allow you an option to start podcasts
 #     - - - - - - - - THIS WILL NOW BE REPLACED BY REDUCING THE NUMBER OF ACTIONS (ACTIONLIMIT) THAT THE PLAYER WITH HAVE. THEY WILL BE ABLE TO MANAGE THIS WITH AN ACTION MENU IN THE FUTURE

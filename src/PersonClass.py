@@ -41,6 +41,7 @@ class Person:
         self.strengthDecay = strengthDecay
         self.happinessDecay = happinessDecay
         self.memorizeTurns = 0
+        self.highSchoolIntelligenceDecay = 0
         self.job = job
         self.debug = debug
         self.timeAtJob = timeAtJob
@@ -97,9 +98,9 @@ class Person:
     def calculateIntelligence(self):
         if self.age < 16:
             self.intelligenceDecay = 0
-        elif self.age >= 16:
-            self.intelligenceDecay = 1
-        self.intelligence -= self.intelligenceDecay
+        else:
+            self.intelligenceDecay = 0.5
+        self.intelligence -= self.intelligenceDecay + self.highSchoolIntelligenceDecay
         if self.intelligence < 0:
             self.intelligence = 0
 
@@ -138,13 +139,12 @@ class Person:
             print("you only have " + str(self.cureAttemptByTurn) + " attempts left, now!")
             if self.age < 18:
                 if self.relationships[0].status == "Low Income":
-                    chance = 5
+                    chance = 30
                 elif self.relationships[0].status == "Mid Income":
-                    chance = 3
+                    chance = 50
                 else:
-                    chance = 2
-                doctorchance = random.randint(1, chance)
-                if doctorchance == 1:
+                    chance = 80
+                if randint(1, 100) <= chance:
                     print("Your parents decide to take you to treatment for " + self.illness.name)
                     print("It costed them $" + str(self.illness.cureCost))
                     curechance = random.randint(1, 100)
@@ -158,7 +158,7 @@ class Person:
                         # add the amount of treatments needs to cure a specific disease/illness
                 else:
                     print(f"Your parents could not afford to take you to the doctor. {self.relationships[0].status}! They are devastated.")
-            elif self.age >= 18:
+            else:
                 print("It will cost " + str(self.illness.cureCost) + " to cure " + self.illness.name)
                 print("Would you like to attempt to cure? y/n")
                 pinput = input()
@@ -166,15 +166,19 @@ class Person:
                     if self.money >= self.illness.cureCost:
                         curechance = random.randint(1, 100)
                         if curechance < self.illness.cureChance:
-                            self.health += 2 * self.illness.healthDecay
-                            self.happiness += 2 * self.illness.happinessDecay
-                            self.intelligence += 2 * self.illness.intelligenceDecay
+                            self.health += 3 * self.illness.healthDecay
+                            self.happiness += 3 * self.illness.happinessDecay
+                            self.intelligence += 3 * self.illness.intelligenceDecay
                             
                             self.happiness = min(self.happiness, 100)
                             self.health = min(self.health, 100)
                             self.intelligence = min(self.intelligence, 100)
                             
                             print("You have cured " + self.illness.name)
+                            
+                            self.illness = None
+                        else:
+                            print("You recieved treatment but you continue to suffer from " + self.illness.name)
                             
                     else:
                         print("You do not have the money to go through treatment")
